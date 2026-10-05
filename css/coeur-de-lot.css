@@ -1,0 +1,333 @@
+
+:root{
+  --fs-h1: clamp(2.5rem, 5.6vw, 4.6rem);
+  --fs-h2: clamp(1.9rem, 3.5vw, 2.9rem);
+  --fs-h3: clamp(1.25rem, 1.9vw, 1.55rem);
+}
+h1, h2, h3{
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.hero__titre{ font-weight: 400; text-wrap: balance; }
+h2{ text-wrap: balance; }
+.surtitre{ letter-spacing: .18em; font-size: .76rem; font-weight: 700; }
+.surtitre::before{
+  content: ""; display: inline-block; vertical-align: middle;
+  width: 1.6rem; height: 1px; margin-right: .6rem;
+  background: currentColor; opacity: .7;
+}
+.section__entete--centre .surtitre::after{
+  content: ""; display: inline-block; vertical-align: middle;
+  width: 1.6rem; height: 1px; margin-left: .6rem;
+  background: currentColor; opacity: .7;
+}
+.encadre-equipe__citation{ font-style: italic; font-weight: 500; }
+::selection{ background: var(--c-rose-poudre); color: var(--c-encre); }
+
+.logo--texte{
+  gap: .6rem;
+  line-height: 1;
+  color: var(--c-encre);
+}
+.logo__marque{ display: inline-flex; color: var(--c-bois); }
+.logo__marque svg{ width: 1.7rem; height: auto; }
+.logo__mots{ display: inline-flex; flex-direction: column; gap: .22rem; }
+.logo__nom{
+  font-family: var(--f-titre);
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.logo__lieu{
+  font-family: var(--f-ui);
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  opacity: .75;
+}
+.entete[data-etat="transparent"] .logo--texte{ color: var(--c-blanc); }
+.entete[data-etat="transparent"] .logo__marque{ color: var(--c-abricot); }
+@media (max-width: 767px){
+  .entete__logo .logo__nom{ font-size: 1.35rem; }
+  .entete__logo .logo__marque svg{ width: 1.4rem; }
+  .entete[data-etat].entete--menu-ouvert .logo--texte{ color: var(--c-encre); }
+}
+.logo--grand{ color: var(--c-blanc); flex-direction: column; gap: 1rem; text-align: center; }
+.logo--grand .logo__mots{ align-items: center; }
+.logo--grand .logo__marque{ color: var(--c-abricot); }
+.logo--grand .logo__marque svg{ width: clamp(3rem, 7vw, 4.2rem); }
+.logo--grand .logo__nom{ font-size: clamp(2.8rem, 7.5vw, 4.8rem); }
+.logo--grand .logo__lieu{ font-size: clamp(.7rem, 1.4vw, .85rem); }
+.pied__logo{ color: var(--c-ivoire); }
+.pied__logo .logo__marque{ color: var(--c-abricot); }
+
+.texture-aquarelle{
+  background-color: var(--c-creme);
+  background-image:
+    radial-gradient(60% 55% at 15% 20%, rgba(140,123,181,.12) 0%, transparent 70%),
+    radial-gradient(55% 50% at 85% 85%, rgba(110,125,74,.10) 0%, transparent 72%);
+}
+.texture-aquarelle::after{ opacity: .08; }
+.motif-signature::before{ border-radius: 2px; }
+
+.label-badge__cles{ display: inline-flex; gap: 2px; color: var(--etoile); }
+.label-badge__cles svg{ width: 17px; height: 17px; }
+.avis-badge--clair .label-badge__cles{ color: var(--c-abricot); }
+
+.encadre-equipe__portrait--initiales{
+  display: grid; place-items: center;
+  background: var(--c-encre);
+  color: var(--c-abricot);
+  font-family: var(--f-titre);
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.lieu{ cursor: default; }
+.lieu__titre{ font-family: var(--f-ui); font-weight: 700; }
+
+.lits{ list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.lits li{
+  display: grid; grid-template-columns: minmax(7.5rem, auto) 1fr; gap: 1rem;
+  padding: .7rem 1rem;
+  background: var(--c-blanc);
+  border: 1px solid var(--bordure-douce);
+  border-left: 3px solid var(--c-bois);
+  border-radius: var(--r-champ);
+  font-family: var(--f-ui);
+  font-size: var(--fs-petit);
+}
+.lits b{ color: var(--c-bois); font-weight: 700; }
+@media (max-width: 480px){ .lits li{ grid-template-columns: 1fr; gap: .2rem; } }
+
+.carte-chambre__tarif b,
+.modale__tarif__valeur{ font-family: var(--f-titre); font-weight: 400; }
+.points__chiffre{ font-family: var(--f-titre); font-weight: 400; }
+
+.btn--primaire{ box-shadow: 0 6px 18px rgba(70,54,112,.22); }
+.btn--reserver{ background: var(--c-bois-rose-fond); }
+.btn--reserver:hover{ background: var(--c-bois-fonce); }
+.btn{ letter-spacing: .04em; }
+.btn--contour{ border-color: var(--c-bois-rose-fond); color: var(--c-bois-fonce); }
+.btn--contour:hover{ background: var(--c-rose-poudre); border-color: var(--c-bois-fonce); }
+.lien-fleche{ color: var(--c-bois); }
+.lien-fleche:hover{ color: var(--c-bois-fonce); }
+
+.chambres__piste .chambres__cellule .chambres__comble{ display: none !important; }
+@media (min-width: 768px){
+  .chambres__cellule:not([data-rail-copie]){ display: flex; flex-direction: column; }
+  .chambres__cellule > .carte-chambre{ flex: 1 1 auto; }
+  .carte-chambre__pied{ margin-top: auto; }
+}
+@media (min-width: 768px) and (max-width: 1023px){
+  .chambres__grille{ grid-template-columns: repeat(3, 1fr); }
+  .chambres__grille .carte-chambre__resume{ font-size: var(--fs-petit); }
+}
+.carte-chambre__titre{ font-family: var(--f-titre); font-weight: 400; }
+.carte-chambre__puces{ align-content: flex-start; align-items: flex-start; }
+
+.domaine.section{ padding-block: clamp(3rem, 6vw, 5rem); }
+.domaine__grille{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.domaine__titre{ margin: .6rem 0 1rem; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+.domaine__texte > p{ max-width: 52ch; }
+.domaine__faits{
+  list-style: none; margin: 1.5rem 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 1.5rem;
+}
+.domaine__fait{
+  display: flex; flex-direction: column; gap: .15rem;
+  padding-left: .9rem;
+  border-left: 2px solid var(--c-corail);
+}
+.domaine__chiffre{
+  font-family: var(--f-titre);
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--accent);
+}
+.domaine__libelle{ font-family: var(--f-ui); font-size: var(--fs-petit); color: var(--texte-doux); }
+.domaine__note{
+  margin-top: 1.2rem;
+  font-family: var(--f-ui);
+  font-size: var(--fs-micro);
+  letter-spacing: .04em;
+  color: var(--texte-doux);
+}
+.domaine__photos{
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem;
+}
+.domaine__photo .placeholder-img{ aspect-ratio: 4/3; border-radius: var(--r-carte); }
+.domaine__photo img{ width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 900px){
+  .domaine__grille{ grid-template-columns: 1fr; }
+}
+
+.avis .section__entete{ margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+.avis__defile{
+  overflow: hidden;
+  padding-block: .4rem 1rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+.avis__piste{
+  display: flex;
+  width: max-content;
+  animation: avis-defile 90s linear infinite;
+}
+@keyframes avis-defile{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+.carte-avis{
+  flex: 0 0 auto;
+  width: 340px;
+  margin-right: var(--gouttiere);
+  display: flex; flex-direction: column; gap: .6rem;
+  padding: 1.4rem 1.5rem;
+  background: var(--c-blanc);
+  border-radius: var(--r-carte);
+  border-top: 3px solid var(--c-rose);
+  box-shadow: var(--ombre-carte);
+}
+.carte-avis__etoiles{ display: inline-flex; gap: 2px; color: var(--etoile); }
+.carte-avis__etoiles svg{ width: 15px; height: 15px; }
+.carte-avis__titre{ font-family: var(--f-titre); font-size: 1.35rem; line-height: 1.25; }
+.carte-avis__texte{ font-size: var(--fs-petit); font-style: italic; color: var(--texte); }
+.carte-avis__auteur{
+  margin-top: auto;
+  font-family: var(--f-ui);
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--texte-doux);
+}
+@media (max-width: 767px){
+  .carte-avis{ width: 280px; }
+  .avis__piste{ animation-duration: 75s; }
+}
+
+@media (min-width: 1024px){
+  .carte-activite{ flex-basis: calc((100% - 3 * var(--gouttiere)) / 4); min-width: 0; }
+}
+.carte-activite{ background: var(--c-encre); }
+.carte-activite__voile{
+  background: linear-gradient(180deg,
+    rgba(43,39,35,.45) 0%,
+    rgba(43,39,35,.65) 50%,
+    rgba(43,39,35,.9) 100%);
+}
+.carte-activite__corps,
+.carte-activite__titre,
+.carte-activite__accroche,
+.carte-activite .lien-fleche{ color: var(--c-blanc); }
+.carte-activite__embleme{ color: var(--c-abricot); }
+
+.carte-contact__valeur{ overflow-wrap: anywhere; }
+.pied__liste li{ font-size: var(--fs-petit); }
+
+.compteur{
+  display: inline-block;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.points__item--attente .points__icone,
+.points__item--attente .points__chiffre,
+.points__item--attente .points__libelle{
+  opacity: 0;
+  transform: translateY(14px);
+}
+.points__item--entre .points__icone,
+.points__item--entre .points__chiffre,
+.points__item--entre .points__libelle{
+  opacity: 1;
+  transform: none;
+  transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1);
+  transition-delay: var(--delai-point, 0ms);
+}
+.points__item--entre .points__chiffre{ transition-delay: calc(var(--delai-point, 0ms) + 80ms); }
+.points__item--entre .points__libelle{ transition-delay: calc(var(--delai-point, 0ms) + 160ms); }
+
+.nav__lien::after{ background: var(--c-bois-rose-fond); }
+.nav__lien:hover,
+.nav__lien[aria-current="true"]{ color: var(--c-bois-rose-fond); }
+.nav-mobile__lien[aria-current="true"]{ color: var(--c-bois-rose-fond); }
+
+@media (min-width: 1024px){
+  .espaces__grille{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.carte-contact--avis{ align-content: space-between; }
+.carte-contact--avis .carte-contact__liens{ align-self: end; align-items: center; justify-self: center; justify-content: center; }
+.carte-contact__liens .btn{ align-self: center; height: auto; }
+.carte-contact__liens .btn svg{ width: 16px; height: 16px; flex: none; }
+
+.btn--compact svg{ width: 16px; height: 16px; flex: none; }
+
+.carte-activite:hover .carte-activite__titre,
+.carte-activite:hover .carte-activite__accroche,
+.carte-activite:hover .carte-activite__corps{ color: var(--c-blanc); }
+.carte-activite .carte-activite__pied .lien-fleche,
+.carte-activite:hover .carte-activite__pied .lien-fleche,
+.carte-activite .lien-fleche:hover{ color: var(--c-abricot); }
+
+.modale__corps, .lieux, .vignettes, .equipements-groupes{ scrollbar-width: none; -ms-overflow-style: none; }
+.modale__corps::-webkit-scrollbar, .lieux::-webkit-scrollbar,
+.vignettes::-webkit-scrollbar, .equipements-groupes::-webkit-scrollbar{ display: none; }
+
+.carte-contact__liens--itineraire{ margin: .2rem 0 .8rem; }
+.formulaire__note{
+  margin-top: .8rem;
+  font-family: var(--f-ui);
+  font-size: var(--fs-micro);
+  color: var(--texte-doux);
+  text-align: center;
+}
+
+.carte-contact--avis,
+.carte-contact--trouver{ justify-items: center; text-align: center; }
+.carte-contact--trouver{ grid-template-columns: 1fr; }
+.carte-contact--trouver .carte-contact__liens--itineraire{ justify-content: center; }
+.carte-contact--trouver .carte-maps{ justify-self: stretch; width: 100%; }
+@media (min-width: 901px){
+  .carte-contact--trouver{ grid-template-rows: auto auto auto auto 1fr; }
+}
+
+.carte-chambre__meta{ text-transform: none; letter-spacing: .02em; }
+
+.histoire__texte h3,
+.espaces .section__entete h3,
+.formulaire h3,
+.carte-activite__titre,
+.equipements-maison__titre{
+  font-family: var(--f-titre);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.carte-activite__titre{ font-size: 1.45rem; }
+
+.carte-chambre__tarif--avis,
+.modale__tarif--avis{
+  display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;
+  gap: 1rem;
+}
+.carte-chambre__tarif--avis > span:first-child{ flex: 1 1 auto; min-width: 0; }
+.note-avis{
+  flex: none;
+  display: inline-grid; grid-template-columns: auto auto; align-items: center;
+  column-gap: .3rem; justify-items: end; text-align: right;
+  font-family: var(--f-ui); font-size: var(--fs-petit); color: var(--texte);
+  white-space: nowrap;
+}
+.note-avis b{ font-family: var(--f-ui); font-weight: 700; }
+.note-avis__etoile{ display: inline-flex; gap: 1px; color: var(--etoile); }
+.note-avis__etoile svg{ width: 13px; height: 13px; }
+.note-avis__volume{ grid-column: 1 / -1; color: var(--texte-doux); font-size: var(--fs-micro); line-height: 1.2; }
+.points__icone svg[fill="currentColor"]{ color: var(--c-abricot); }
