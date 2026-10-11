@@ -296,9 +296,18 @@
     function actif() { return piste.scrollWidth - piste.clientWidth > 1; }
     function serie() { return parSerie * pas(); }
 
+    /* `data-rail-page` : une flèche fait défiler tout ce qui est à l'écran
+       (les deux cases d'activités sur ordinateur), pas une seule carte. */
+    var parPage = racine.hasAttribute('data-rail-page');
+    function avance() {
+      if (!parPage) return pas();
+      var ecart = parseFloat(window.getComputedStyle(piste).columnGap) || 0;
+      return piste.clientWidth + ecart;
+    }
+
     function glisser(sens) {
       piste.scrollBy({
-        left: sens * pas(),
+        left: sens * avance(),
         behavior: reduit.matches ? 'auto' : 'smooth'
       });
     }
