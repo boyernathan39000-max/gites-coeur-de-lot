@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Nunito+Sans:wght@400;600;700&display=swap">
 
 <style>
-  :root{--c-encre:#2B2723;--c-ivoire:#F5EFE4;--h-header:76px}
+  :root{--c-encre:#2B2723;--c-ivoire:#F1E9DB;--h-header:76px}
   html{background:var(--c-ivoire)}
   body{margin:0;font-family:"Nunito Sans",Helvetica,Arial,sans-serif;color:var(--c-encre)}
   .loader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:var(--c-encre)}
@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/style.css?v=2026-10-12c">
-<link rel="stylesheet" href="css/coeur-de-lot.css?v=2026-10-21b">
+<link rel="stylesheet" href="css/coeur-de-lot.css?v=2026-10-21c">
 
 <script>document.documentElement.classList.remove('sans-js');</script>
 <script>
@@ -81,6 +81,10 @@
   "sameAs": ["https://www.facebook.com/pages/category/Vacation-Home-Rental/Gites-Coeur-de-Lot-111820626177345/", "https://www.instagram.com/gitescoeurdelot/"]
 }
 </script>
+<link rel="alternate" hreflang="fr" href="./">
+<link rel="alternate" hreflang="en" href="en/">
+<link rel="alternate" hreflang="es" href="es/">
+<link rel="alternate" hreflang="nl" href="nl/">
 </head>
 <body>
 
@@ -115,9 +119,12 @@
     </nav>
 
     <div class="entete__actions">
-            <a class="entete__tel" href="tel:+33680421752" aria-label="Appeler les Gîtes Cœur de Lot au 06 80 42 17 52">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a11 11 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3z"/></svg><span>06 80 42 17 52</span>
-      </a>
+                  <ul class="langues entete__langues" aria-label="Langue du site">
+        <li><a class="langues__drapeau" href="./" hreflang="fr" lang="fr" data-langue="fr" aria-current="page" aria-label="Français" title="Français"><svg viewBox="0 0 30 30" aria-hidden="true"><clipPath id="r-fr"><circle cx="15" cy="15" r="15"/></clipPath><g clip-path="url(#r-fr)"><rect width="10" height="30" fill="#0055A4"/><rect x="10" width="10" height="30" fill="#fff"/><rect x="20" width="10" height="30" fill="#EF4135"/></g></svg></a></li>
+        <li><a class="langues__drapeau" href="en/" hreflang="en" lang="en" data-langue="en" aria-label="English" title="English"><svg viewBox="0 0 30 30" aria-hidden="true"><clipPath id="r-en"><circle cx="15" cy="15" r="15"/></clipPath><g clip-path="url(#r-en)"><rect width="30" height="30" fill="#012169"/><path d="M-5 0L35 30M35 0L-5 30" stroke="#fff" stroke-width="6"/><path d="M-5 0L35 30M35 0L-5 30" stroke="#C8102E" stroke-width="2"/><path d="M15 0V30M0 15H30" stroke="#fff" stroke-width="10"/><path d="M15 0V30M0 15H30" stroke="#C8102E" stroke-width="6"/></g></svg></a></li>
+        <li><a class="langues__drapeau" href="es/" hreflang="es" lang="es" data-langue="es" aria-label="Español" title="Español"><svg viewBox="0 0 30 30" aria-hidden="true"><clipPath id="r-es"><circle cx="15" cy="15" r="15"/></clipPath><g clip-path="url(#r-es)"><rect width="30" height="30" fill="#AA151B"/><rect y="7.5" width="30" height="15" fill="#F1BF00"/></g></svg></a></li>
+        <li><a class="langues__drapeau" href="nl/" hreflang="nl" lang="nl" data-langue="nl" aria-label="Nederlands" title="Nederlands"><svg viewBox="0 0 30 30" aria-hidden="true"><clipPath id="r-nl"><circle cx="15" cy="15" r="15"/></clipPath><g clip-path="url(#r-nl)"><rect width="30" height="10" fill="#AE1C28"/><rect y="10" width="30" height="10" fill="#fff"/><rect y="20" width="30" height="10" fill="#21468B"/></g></svg></a></li>
+        </ul>
       <a class="btn btn--primaire btn--reserver btn--compact" href="#contact">Réserver</a>
       <button type="button" class="burger" id="burger" aria-expanded="false"
               aria-controls="nav-mobile" aria-label="Ouvrir le menu">
@@ -139,6 +146,12 @@
       <li><a class="nav-mobile__lien" href="#contact">Contact</a></li>
     </ul>
     <div class="nav-mobile__pied">
+      <ul class="langues nav-mobile__langues" aria-label="Langue du site">
+        <li><a class="langues__drapeau" href="./" hreflang="fr" lang="fr" data-langue="fr" aria-current="page" aria-label="Français" title="Français"><svg viewBox="0 0 30 30" aria-hidden="true"><clipPath id="r-fr-m"><circle cx="15" cy="15" r="15"/></clipPath><g clip-path="url(#r-fr-m)"><rect width="10" height="30" fill="#0055A4"/><rect x="10" width="10" height="30" fill="#fff"/><rect x="20" width="10" height="30" fill="#EF4135"/></g></svg></a></li>
+        <li><a class="langues__drapeau" href="en/" hreflang="en" lang="en" data-langue="en" aria-label="English" title="English"><svg viewBox="0 0 30 30" aria-hidden="true"><clipPath id="r-en-m"><circle cx="15" cy="15" r="15"/></clipPath><g clip-path="url(#r-en-m)"><rect width="30" height="30" fill="#012169"/><path d="M-5 0L35 30M35 0L-5 30" stroke="#fff" stroke-width="6"/><path d="M-5 0L35 30M35 0L-5 30" stroke="#C8102E" stroke-width="2"/><path d="M15 0V30M0 15H30" stroke="#fff" stroke-width="10"/><path d="M15 0V30M0 15H30" stroke="#C8102E" stroke-width="6"/></g></svg></a></li>
+        <li><a class="langues__drapeau" href="es/" hreflang="es" lang="es" data-langue="es" aria-label="Español" title="Español"><svg viewBox="0 0 30 30" aria-hidden="true"><clipPath id="r-es-m"><circle cx="15" cy="15" r="15"/></clipPath><g clip-path="url(#r-es-m)"><rect width="30" height="30" fill="#AA151B"/><rect y="7.5" width="30" height="15" fill="#F1BF00"/></g></svg></a></li>
+        <li><a class="langues__drapeau" href="nl/" hreflang="nl" lang="nl" data-langue="nl" aria-label="Nederlands" title="Nederlands"><svg viewBox="0 0 30 30" aria-hidden="true"><clipPath id="r-nl-m"><circle cx="15" cy="15" r="15"/></clipPath><g clip-path="url(#r-nl-m)"><rect width="30" height="10" fill="#AE1C28"/><rect y="10" width="30" height="10" fill="#fff"/><rect y="20" width="30" height="10" fill="#21468B"/></g></svg></a></li>
+        </ul>
       <a class="btn btn--primaire btn--pleine" href="tel:+33680421752">06 80 42 17 52</a>
     </div>
   </nav>
@@ -533,7 +546,7 @@
     </div>
     <div class="pied__bas">
       <p>© 2026 Gîtes Cœur de Lot · Lot.</p>
-      <p>Maquette réalisée par OBT Agency</p>
+      <p>Site réalisé par OBT Agency</p>
     </div>
   </div>
 </footer>

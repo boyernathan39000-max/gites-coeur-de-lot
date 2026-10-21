@@ -51,7 +51,8 @@
       var actif = film.muted;            // muet aujourd'hui : on active le son
       film.muted = !actif;
       son.setAttribute('aria-pressed', actif ? 'true' : 'false');
-      son.querySelector('span').textContent = actif ? 'Couper le son' : 'Activer le son';
+      var SON = { fr: ['Couper le son', 'Activer le son'], en: ['Mute', 'Turn sound on'], es: ['Silenciar', 'Activar el sonido'], nl: ['Geluid uit', 'Geluid aan'] }[(document.documentElement.lang || 'fr').slice(0, 2)] || ['Couper le son', 'Activer le son'];
+      son.querySelector('span').textContent = actif ? SON[0] : SON[1];
       if (actif && film.paused) { film.preload = 'auto'; var e = film.play(); if (e && e.catch) e.catch(function () {}); }
     });
   }

@@ -70,7 +70,7 @@
         var b = document.createElement('button');
         b.type = 'button';
         b.className = 'carrousel__pastille';
-        b.setAttribute('aria-label', 'Aller à l’image ' + (i + 1));
+        b.setAttribute('aria-label', ({ en: 'Go to image ', es: 'Ir a la imagen ', nl: 'Naar afbeelding ' }[(document.documentElement.lang || 'fr').slice(0, 2)] || 'Aller à l’image ') + (i + 1));
         b.addEventListener('click', function () { aller(i); });
         zonePastilles.appendChild(b);
         pastilles.push(b);
