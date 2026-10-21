@@ -971,3 +971,14 @@ a.activite__lieu:hover .activite__nom::after{ transform: translate(.2em, -.1em) 
 
 #activites .activites__office{ display: flex; justify-content: center; width: 100%; margin: 1.5rem auto 0; text-align: center; }
 #activites .activites__office .btn{ margin-inline: auto; }
+
+.modale__flux > .modale__section.modale__colonnes,
+.modale__colonnes{
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+  padding-top: var(--e-4); border-top: 1px solid var(--c-sable);
+}
+.modale__colonne h3{ margin-top: 0; }
+.equipements.equipements--colonne{ grid-template-columns: 1fr; }
+.contact__grille{ grid-template-columns: 5fr 6fr; }
+@media (max-width: 900px){ .contact__grille{ grid-template-columns: 1fr; } }
