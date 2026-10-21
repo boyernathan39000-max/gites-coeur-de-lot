@@ -838,3 +838,136 @@ a.activite__lieu:hover .activite__nom::after{ transform: translate(.2em, -.1em) 
 .avis--violet .section__entete h2{ color: var(--c-blanc); }
 .avis--violet .surtitre{ color: var(--c-mauve); }
 .avis--violet .carte-avis{ border-top-color: var(--c-abricot); box-shadow: 0 14px 36px rgba(20,12,40,.25); }
+
+
+.domaine-haut__cote{ grid-template-rows: auto 1fr; }
+.domaine-haut .domaine-recit__faits{ grid-template-rows: auto auto; }
+.domaine-haut .domaine-mot--vedette{
+  display: flex; flex-direction: column; justify-content: center; gap: .55rem;
+  padding: clamp(1rem, 1.6vw, 1.3rem);
+  background: var(--c-bois); color: var(--c-blanc);
+  border: 0; border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(40, 28, 80, .28);
+}
+.domaine-mot__tete{ display: flex; align-items: center; gap: .8rem; }
+.domaine-mot--vedette .encadre-equipe__portrait{ background: var(--c-abricot); color: var(--c-encre); }
+.domaine-mot__titre{ margin: 0; font-family: var(--f-titre); font-size: clamp(1.3rem, 1.8vw, 1.6rem); line-height: 1.1; color: var(--c-blanc); }
+.domaine-haut .domaine-mot--vedette .encadre-equipe__citation{ color: var(--c-blanc); font-family: var(--f-corps); font-style: normal; font-size: .9rem; line-height: 1.45; margin: 0; }
+.domaine-mot__avis{
+  margin: 0; padding-left: .8rem;
+  border-left: 3px solid var(--c-abricot);
+  font-size: .9rem; font-style: italic; color: var(--c-mauve);
+}
+.domaine-mot__avis span{ display: block; font-style: normal; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; opacity: .85; }
+.domaine-mot--vedette .encadre-equipe__signature{ margin: 0; color: var(--c-abricot); }
+
+.avis-colonnes{
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.2rem, 3vw, 2.5rem);
+}
+.avis-colonne{
+  min-width: 0;
+  display: flex; flex-direction: column; gap: 1rem;
+  padding: clamp(1.1rem, 2vw, 1.6rem) 0 clamp(1.1rem, 2vw, 1.6rem);
+  background: var(--c-blanc); color: var(--c-encre);
+  border-radius: 18px;
+  box-shadow: 0 18px 44px rgba(20, 12, 40, .28);
+}
+.avis-colonne__tete{
+  display: flex; align-items: baseline; justify-content: space-between; gap: .8rem; flex-wrap: wrap;
+  padding-inline: clamp(1.1rem, 2vw, 1.6rem);
+}
+.avis-colonne__source{ margin: 0; font-family: var(--f-titre); font-weight: 400; font-size: clamp(1.7rem, 2.6vw, 2.2rem); color: var(--c-bois); }
+.avis-colonne__note{ margin: 0; display: inline-flex; align-items: center; gap: .45rem; color: var(--texte-doux); font-size: .95rem; }
+.avis-colonne__note b{ color: var(--c-encre); font-size: 1.2rem; }
+.avis-colonne__etoiles{ display: inline-flex; gap: 2px; color: var(--etoile); }
+.avis-colonne__etoiles svg{ width: 15px; height: 15px; }
+.avis-colonne__defile{
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+.avis-colonne__piste{ display: flex; width: max-content; padding-block: .3rem .5rem; animation: avis-defile var(--duree, 72s) linear infinite; }
+.avis-colonne .carte-avis{
+  width: 250px; margin-right: 1rem; padding: 1rem 1.1rem; gap: .45rem;
+  background: var(--c-ivoire); border-top: 3px solid var(--c-bois); box-shadow: none;
+}
+.avis-colonne .carte-avis__titre{ color: var(--c-encre); font-size: 1.15rem; }
+.avis-colonne .carte-avis__texte{ font-size: .86rem; line-height: 1.45; }
+@media (prefers-reduced-motion: reduce){
+  .avis-colonne__piste{ animation: none; flex-wrap: wrap; width: auto; }
+  .avis-colonne__piste > [aria-hidden="true"]{ display: none; }
+}
+@media (max-width: 767px){
+  .avis-colonnes{ grid-template-columns: 1fr; }
+  .avis-colonne .carte-avis{ width: 230px; }
+}
+
+.activites__office{ margin: 1.2rem 0 0; display: flex; justify-content: center; }
+.activites__office .btn{ display: inline-flex; align-items: center; gap: .5rem; }
+.activites__office .btn svg{ width: 16px; height: 16px; }
+
+.formulaire__titre{ margin-bottom: .35rem; }
+.formulaire__intro{ margin: 0 0 1rem; font-size: .95rem; color: var(--texte-doux); }
+
+.domaine-haut .domaine-mot--vedette{
+  flex-direction: row; align-items: center; justify-content: flex-start; gap: 1.1rem;
+  text-align: left;
+}
+.domaine-haut .domaine-mot--vedette .encadre-equipe__citation{ flex: 1; text-align: left; }
+.domaine-haut .domaine-mot--vedette .encadre-equipe__portrait{
+  width: 76px; height: 76px; flex: none; font-size: 2rem;
+}
+@media (min-width: 1024px){
+  .domaine-haut__cote{ grid-template-rows: repeat(3, minmax(0, 1fr)); gap: var(--e-3); }
+  .domaine-haut .domaine-recit__faits{
+    grid-row: span 2; grid-template-rows: 1fr 1fr;
+    grid-template-rows: subgrid; row-gap: var(--e-3);
+  }
+}
+
+:is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .vignettes{
+  overflow: hidden; padding-bottom: 0;
+}
+:is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .vignettes__item{
+  flex: 1 1 0; min-width: 0; max-width: 104px;
+}
+:is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .carrousel__vue .placeholder-img{
+  max-height: calc(100vh - 400px); min-height: 200px;
+}
+:is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .carrousel__vue img{
+  width: 100%; height: 100%; object-fit: cover;
+}
+@media (max-height: 820px){
+  :is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .modale__titre{ font-size: 2rem; }
+  :is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .modale__promesse{ font-size: 1rem; margin-bottom: .4rem; }
+  :is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .modale__section{ margin-top: .8rem; }
+  :is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .modale__section li{ margin-bottom: .35rem; }
+}
+@media (max-height: 820px){
+  :is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .benefices{ gap: .45rem; }
+}
+@media (max-height: 820px){
+  :is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .modale__corps{ padding-block: 1.25rem; }
+  :is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .carrousel__vue .placeholder-img{ max-height: calc(100vh - 430px); }
+}
+:is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .carrousel__vue .placeholder-img{
+  width: 100%; aspect-ratio: auto; height: min(calc(100vh - 400px), 30vw, 430px);
+}
+@media (max-height: 820px){
+  :is(#modale-piscine, #modale-vie, #modale-chambres-gites, #modale-terrasses) .carrousel__vue .placeholder-img{ height: min(calc(100vh - 430px), 30vw, 430px); }
+}
+
+.modale--lightbox .carrousel__vue .placeholder-img{
+  aspect-ratio: auto; height: min(78vh, 720px); background: transparent;
+  display: flex; align-items: center; justify-content: center;
+}
+.modale--lightbox .carrousel__cadre{ background: transparent; }
+.modale--lightbox .carrousel__vue img{
+  position: static; width: auto; height: auto; max-width: 100%; max-height: 100%;
+  object-fit: contain; transform: none; border-radius: 10px;
+}
+.modale--lightbox .carrousel__vue .photo__fond{ display: none; }
+
+#activites .activites__office{ display: flex; justify-content: center; width: 100%; margin: 1.5rem auto 0; text-align: center; }
+#activites .activites__office .btn{ margin-inline: auto; }
