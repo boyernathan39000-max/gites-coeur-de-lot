@@ -1028,7 +1028,9 @@ a.activite__lieu:hover .activite__nom::after{ transform: translate(.2em, -.1em) 
 .accord a{ color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .accord input[aria-invalid="true"]{ outline: 2px solid var(--c-erreur, #B3261E); outline-offset: 2px; }
 
-.defile__copie{ display: none; }
+@media (min-width: 768px){
+  .defile .defile__piste > .defile__copie{ display: none; }
+}
 .galerie__suite{ display: none; }
 .nav-mobile__boutons{ display: flex; gap: .6rem; }
 .nav-mobile__boutons .btn{ flex: 1 1 0; min-width: 0; padding-inline: .8rem; white-space: nowrap; }
@@ -1048,7 +1050,6 @@ a.activite__lieu:hover .activite__nom::after{ transform: translate(.2em, -.1em) 
   .hero__ctas .btn--tel svg{ width: 16px; height: 16px; }
 
     .defile{ overflow: hidden; }
-  .defile__copie{ display: revert; }
   .defile > .defile__piste{
     display: flex !important;
     flex-wrap: nowrap;
