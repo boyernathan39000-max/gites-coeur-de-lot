@@ -1170,3 +1170,12 @@ a.activite__lieu:hover .activite__nom::after{ transform: translate(.2em, -.1em) 
   .defile > .defile__piste{ animation: none; }
   .defile__copie{ display: none !important; }
 }
+
+.carte-chambre__tarif--avis.note-seule,
+.modale__tarif--avis.note-seule{ justify-content: center; }
+.note-seule .note-avis{
+  display: inline-flex; flex-wrap: nowrap; align-items: center; justify-content: center;
+  gap: .4rem; text-align: center;
+}
+.note-seule .note-avis__volume{ font-size: var(--fs-petit); line-height: 1.3; }
+.note-seule .note-avis__volume::before{ content: "· "; }
