@@ -1,6 +1,7 @@
 /* ============================================================
    GÎTES CŒUR DE LOT : Formulaire de contact
-   Quatre champs : nom et prénom, email, téléphone, demande.
+   Quatre champs : nom et prénom, email, téléphone, demande, puis la case
+   de consentement obligatoire (RGPD, ajoutée le 23/10/2026).
    Validation en français, messages inline (jamais d'alert()),
    piège à robots (honeypot), et repli mailto: tant qu'aucun service
    n'est branché.
@@ -27,24 +28,28 @@
     fr: { champs: { 'f-nom': 'votre nom et prénom', 'f-email': 'votre adresse email', 'f-tel': 'votre numéro de téléphone', 'f-message': 'votre question' },
           requis: function (l) { return 'Merci d’indiquer ' + l + '.'; }, champ: 'ce champ',
           email: 'Cette adresse email ne semble pas valide.',
+          accord: 'Merci d’accepter l’utilisation de vos informations pour envoyer votre question.',
           incomplet: 'Le formulaire est incomplet : les champs signalés demandent une correction.',
           ouvert: 'Votre logiciel de messagerie s’ouvre avec votre question préremplie. Si rien ne se passe, écrivez-nous directement à tipgip@hotmail.fr ou appelez le 06 80 42 17 52.',
           sujet: 'Question : Gîtes Cœur de Lot', nom: 'Nom', tel: 'Téléphone', demande: 'Question', gite: 'Gîte souhaité' },
     en: { champs: { 'f-nom': 'your full name', 'f-email': 'your email address', 'f-tel': 'your phone number', 'f-message': 'your question' },
           requis: function (l) { return 'Please enter ' + l + '.'; }, champ: 'this field',
           email: 'This email address does not seem to be valid.',
+          accord: 'Please accept the use of your information to send your question.',
           incomplet: 'The form is incomplete: please correct the highlighted fields.',
           ouvert: 'Your email application is opening with your question already filled in. If nothing happens, write to us directly at tipgip@hotmail.fr or call +33 6 80 42 17 52.',
           sujet: 'Question: Gîtes Cœur de Lot', nom: 'Name', tel: 'Phone', demande: 'Question', gite: 'Preferred gîte' },
     es: { champs: { 'f-nom': 'su nombre y apellidos', 'f-email': 'su correo electrónico', 'f-tel': 'su número de teléfono', 'f-message': 'su pregunta' },
           requis: function (l) { return 'Indique ' + l + ', por favor.'; }, champ: 'este campo',
           email: 'Esta dirección de correo electrónico no parece válida.',
+          accord: 'Acepte el uso de sus datos para enviar su pregunta, por favor.',
           incomplet: 'El formulario está incompleto: corrija los campos señalados.',
           ouvert: 'Su programa de correo se abre con su pregunta ya escrita. Si no ocurre nada, escríbanos directamente a tipgip@hotmail.fr o llame al +33 6 80 42 17 52.',
           sujet: 'Pregunta: Gîtes Cœur de Lot', nom: 'Nombre', tel: 'Teléfono', demande: 'Pregunta', gite: 'Alojamiento deseado' },
     nl: { champs: { 'f-nom': 'uw voor- en achternaam', 'f-email': 'uw e-mailadres', 'f-tel': 'uw telefoonnummer', 'f-message': 'uw vraag' },
           requis: function (l) { return 'Vul ' + l + ' in.'; }, champ: 'dit veld',
           email: 'Dit e-mailadres lijkt niet geldig.',
+          accord: 'Ga akkoord met het gebruik van uw gegevens om uw vraag te versturen.',
           incomplet: 'Het formulier is niet volledig: verbeter de aangeduide velden.',
           ouvert: 'Uw e-mailprogramma opent met uw vraag al ingevuld. Gebeurt er niets, schrijf ons dan rechtstreeks op tipgip@hotmail.fr of bel +33 6 80 42 17 52.',
           sujet: 'Vraag: Gîtes Cœur de Lot', nom: 'Naam', tel: 'Telefoon', demande: 'Vraag', gite: 'Gewenste gîte' }
@@ -72,6 +77,11 @@
   }
 
   function validerChamp(champ) {
+    if (champ.type === 'checkbox') {
+      if (champ.hasAttribute('required') && !champ.checked) { poserErreur(champ, T.accord); return false; }
+      nettoyerErreur(champ);
+      return true;
+    }
     var v = (champ.value || '').trim();
     if (champ.hasAttribute('required') && v === '') {
       poserErreur(champ, T.requis(LIBELLES[champ.id] || T.champ));
@@ -89,8 +99,8 @@
     .filter(function (c) { return c.name !== '_appat'; });
 
   champs.forEach(function (champ) {
-    champ.addEventListener('blur', function () { validerChamp(champ); });
-    champ.addEventListener('input', function () {
+    if (champ.type !== 'checkbox') champ.addEventListener('blur', function () { validerChamp(champ); });
+    champ.addEventListener(champ.type === 'checkbox' ? 'change' : 'input', function () {
       if (champ.getAttribute('aria-invalid') === 'true') validerChamp(champ);
     });
   });
@@ -131,7 +141,7 @@
     if (form.getAttribute('data-envoi') !== 'service') {
       e.preventDefault();
       var d = {};
-      champs.forEach(function (c) { d[c.name] = (c.value || '').trim(); });
+      champs.forEach(function (c) { if (c.type !== 'checkbox') d[c.name] = (c.value || '').trim(); });
       window.location.href = 'mailto:tipgip@hotmail.fr'
         + '?subject=' + encodeURIComponent(T.sujet)
         + '&body=' + encodeURIComponent(corpsMail(d));

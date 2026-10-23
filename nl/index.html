@@ -38,7 +38,7 @@
 <link href="../css/reset.css" rel="stylesheet"/>
 <link href="../css/tokens.css" rel="stylesheet"/>
 <link href="../css/style.css?v=2026-10-12c" rel="stylesheet"/>
-<link href="../css/coeur-de-lot.css?v=2026-10-21c" rel="stylesheet"/>
+<link href="../css/coeur-de-lot.css?v=2026-10-23a" rel="stylesheet"/>
 <script>document.documentElement.classList.remove('sans-js');</script>
 <script>
   /* Rafraîchir la page ramène toujours au hero : le navigateur ne restaure
@@ -152,7 +152,11 @@
 <li><a aria-label="Español" class="langues__drapeau" data-langue="es" href="../es/" hreflang="es" lang="es" title="Español"><svg aria-hidden="true" viewbox="0 0 30 30"><clippath id="r-es-m"><circle cx="15" cy="15" r="15"></circle></clippath><g clip-path="url(#r-es-m)"><rect fill="#AA151B" height="30" width="30"></rect><rect fill="#F1BF00" height="15" width="30" y="7.5"></rect></g></svg></a></li>
 <li><a aria-current="page" aria-label="Nederlands" class="langues__drapeau" data-langue="nl" href="../nl/" hreflang="nl" lang="nl" title="Nederlands"><svg aria-hidden="true" viewbox="0 0 30 30"><clippath id="r-nl-m"><circle cx="15" cy="15" r="15"></circle></clippath><g clip-path="url(#r-nl-m)"><rect fill="#AE1C28" height="10" width="30"></rect><rect fill="#fff" height="10" width="30" y="10"></rect><rect fill="#21468B" height="10" width="30" y="20"></rect></g></svg></a></li>
 </ul>
-<a class="btn btn--primaire btn--pleine" href="tel:+33680421752">06 80 42 17 52</a>
+<!-- Téléphone à gauche, Réserver à droite, sur une ligne (retour du 23/10/2026). -->
+<div class="nav-mobile__boutons">
+<a aria-label="Philippe bellen op 06 80 42 17 52" class="btn btn--contour nav-mobile__tel" href="tel:+33680421752"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6.5 3h3l1.5 4-2 1.5a11 11 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3z"></path></svg><span>06 80 42 17 52</span></a>
+<a class="btn btn--primaire btn--reserver" href="#contact">Reserveren</a>
+</div>
 </div>
 </nav>
 </div>
@@ -183,7 +187,7 @@
 <!-- ══════════════ QUATRE REPÈRES : une carte posée à cheval sur le hero (comme au Parc de Jeanne) ══════════════ -->
 <section aria-label="Cœur de Lot in vier cijfers" class="points points--carte" id="points">
 <div class="contenant">
-<ul class="points__liste">
+<ul class="points__liste" data-defile="">
 <li class="points__item">
 <span class="points__icone"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 28"><path d="M12 1.8v1.6"></path><path d="M3.6 11.6 12 3.4l8.4 8.2"></path><path d="M6.2 11V26h11.6V11"></path><path d="M9.8 13.6a2.2 2.2 0 0 1 4.4 0v2.2H9.8z"></path><path d="M5 18.2h14"></path><path d="M10.2 26v-4.4h3.6V26"></path><path d="M2 26h20"></path></svg></span>
 <span class="points__texte">
@@ -235,7 +239,7 @@
 </button>
 </div>
 <aside class="domaine-haut__cote apparait" data-rang="1">
-<ul class="domaine-recit__faits"><li class="domaine-recit__fait"><b>Rust</b><span>absoluut, tussen dennenbos en weiden</span></li><li class="domaine-recit__fait"><b>XXL-zwembad</b><span>12 × 6 m, privé op het domein</span></li><li class="domaine-recit__fait"><b>2 gîtes</b><span>slechts: nooit drukte</span></li><li class="domaine-recit__fait"><b>Sterrennachten</b><span>een heldere hemel zonder enig kunstlicht</span></li></ul>
+<ul class="domaine-recit__faits" data-defile=""><li class="domaine-recit__fait"><b>Rust</b><span>absoluut, tussen dennenbos en weiden</span></li><li class="domaine-recit__fait"><b>XXL-zwembad</b><span>12 × 6 m, privé op het domein</span></li><li class="domaine-recit__fait"><b>2 gîtes</b><span>slechts: nooit drukte</span></li><li class="domaine-recit__fait"><b>Sterrennachten</b><span>een heldere hemel zonder enig kunstlicht</span></li></ul>
 <div class="encadre-equipe domaine-mot domaine-mot--vedette">
 <span aria-hidden="true" class="encadre-equipe__portrait encadre-equipe__portrait--initiales">P</span>
 <p class="encadre-equipe__citation">Wij spreken vloeiend Frans, Spaans en Engels. Wij wonen op het terrein zonder u te storen.</p>
@@ -307,7 +311,7 @@
 <h2>Waan u er al vóór uw aankomst</h2>
 <p class="chapo">Klik op een foto om die te vergroten.</p>
 </div>
-<div class="galerie__grille" data-grille-galerie="">
+<div class="galerie__grille" data-grille-galerie="" id="galerie-grille">
 <button aria-label="Vergroten: de schaapskooi van causse-steen en de bloeiende bomen onder een blauwe hemel" class="galerie__item" data-cat="domaine" data-modale-cible="modale-galerie" data-vue="0" type="button"><figure class="placeholder-img placeholder-img--photo placeholder-img--vignette" data-img-slot="galerie-01" style="--ratio: 4/3"><img alt="De schaapskooi van causse-steen en de bloeiende bomen onder een blauwe hemel" decoding="async" height="900" loading="lazy" sizes="(max-width: 700px) 46vw, (max-width: 1023px) 31vw, 23vw" src="../assets/img/bergerie-fumee-1600.jpg" srcset="../assets/img/bergerie-fumee-800.jpg 800w, ../assets/img/bergerie-fumee-1600.jpg 1600w" width="1600"/></figure></button>
 <button aria-label="Vergroten: het zwembad omzoomd met lavendel" class="galerie__item" data-cat="domaine" data-modale-cible="modale-galerie" data-vue="1" type="button"><figure class="placeholder-img placeholder-img--photo placeholder-img--vignette" data-img-slot="galerie-02" style="--ratio: 4/3"><img alt="Het zwembad omzoomd met lavendel" decoding="async" height="1200" loading="lazy" sizes="(max-width: 700px) 46vw, (max-width: 1023px) 31vw, 23vw" src="../assets/img/piscine-lavande-1600.jpg" srcset="../assets/img/piscine-lavande-800.jpg 800w, ../assets/img/piscine-lavande-1600.jpg 1600w" width="1600"/></figure></button>
 <button aria-label="Vergroten: de woonkamer van gîte K met zichtbare dakspanten" class="galerie__item" data-cat="domaine" data-modale-cible="modale-galerie" data-vue="2" type="button"><figure class="placeholder-img placeholder-img--photo placeholder-img--vignette" data-img-slot="galerie-03" style="--ratio: 4/3"><img alt="De woonkamer van gîte K met zichtbare dakspanten" decoding="async" height="1200" loading="lazy" sizes="(max-width: 700px) 46vw, (max-width: 1023px) 31vw, 23vw" src="../assets/img/k-salon-1600.jpg" srcset="../assets/img/k-salon-800.jpg 800w, ../assets/img/k-salon-1600.jpg 1600w" width="1600"/></figure></button>
@@ -325,6 +329,10 @@
 <button aria-label="Vergroten: het verlichte zwembad ’s nachts" class="galerie__item" data-cat="domaine" data-modale-cible="modale-galerie" data-vue="14" type="button"><figure class="placeholder-img placeholder-img--photo placeholder-img--vignette" data-img-slot="galerie-15" style="--ratio: 4/3"><img alt="Het verlichte zwembad ’s nachts" decoding="async" height="1440" loading="lazy" sizes="(max-width: 700px) 46vw, (max-width: 1023px) 31vw, 23vw" src="../assets/img/piscine-nuit-1440.jpg" srcset="../assets/img/piscine-nuit-800.jpg 800w, ../assets/img/piscine-nuit-1440.jpg 1440w" width="1440"/></figure></button>
 <button aria-label="Vergroten: de schaapskooi vanuit de lucht in de herfst" class="galerie__item galerie__item--large" data-cat="domaine" data-modale-cible="modale-galerie" data-vue="15" type="button"><figure class="placeholder-img placeholder-img--photo placeholder-img--vignette" data-img-slot="galerie-16" style="--ratio: 4/3"><img alt="De schaapskooi vanuit de lucht in de herfst" decoding="async" height="900" loading="lazy" sizes="(max-width: 700px) 46vw, (max-width: 1023px) 31vw, 23vw" src="../assets/img/drone-automne-1600.jpg" srcset="../assets/img/drone-automne-800.jpg 800w, ../assets/img/drone-automne-1600.jpg 1600w" width="1600"/></figure></button>
 </div>
+<!-- Sur téléphone : cinq photos, puis tout le reste à la demande (retour du 23/10/2026). -->
+<p class="galerie__suite">
+<button aria-controls="galerie-grille" aria-expanded="false" class="btn btn--contour galerie__voir" data-galerie-voir="" type="button"><span class="galerie__voir-plus">Meer bekijken</span><span class="galerie__voir-moins">Minder bekijken</span></button>
+</p>
 </div>
 </section>
 <!-- ══════════════ AVIS ══════════════ -->
@@ -439,11 +447,16 @@
 <input autocomplete="off" id="f-appat" name="_appat" tabindex="-1" type="text"/>
 </div>
 <p aria-live="polite" class="formulaire__message" id="form-message" role="status"></p>
+<!-- Consentement obligatoire avant l'envoi (RGPD, demande du 23/10/2026). -->
+<div class="champ champ--large champ--accord">
+<label class="accord" for="f-accord">
+<input aria-describedby="f-accord-erreur" id="f-accord" name="accord" required="" type="checkbox"/>
+<span class="accord__texte">Ik ga ermee akkoord dat mijn gegevens alleen worden gebruikt om mijn vraag te beantwoorden (<a href="politique-confidentialite.html">privacybeleid</a>). <span aria-hidden="true" class="requis">*</span></span>
+</label>
+<p class="champ__erreur" id="f-accord-erreur" role="alert"></p>
+</div>
 <div class="champ--large">
 <button class="btn btn--primaire btn--pleine" type="submit">Mijn vraag versturen</button>
-<p class="formulaire__note">
-              Uw gegevens worden uitsluitend gebruikt om uw vraag te beantwoorden (<a href="politique-confidentialite.html">privacybeleid</a>).
-            </p>
 </div>
 </form>
 </div>
@@ -508,9 +521,10 @@
 <script defer="" src="../js/carousel.js"></script>
 <script defer="" src="../js/modal.js"></script>
 <script defer="" src="../js/nav.js"></script>
-<script defer="" src="../js/form.js"></script>
+<script defer="" src="../js/form.js?v=2026-10-23a"></script>
 <script defer="" src="../js/compteurs.js"></script>
 <script defer="" src="../js/loader.js"></script>
 <script defer="" src="../js/film.js"></script>
+<script defer="" src="../js/mobile.js?v=2026-10-23a"></script>
 </body>
 </html>
