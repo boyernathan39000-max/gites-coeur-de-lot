@@ -1232,7 +1232,7 @@ a.activite__lieu:hover .activite__nom::after{ transform: translate(.2em, -.1em) 
 
 .contact__bande{
   grid-column: 1 / -1;
-  display: flex; justify-content: space-around; gap: .8rem;
+  display: flex; justify-content: center; gap: clamp(2.5rem, 12vw, 6rem);
   padding: 1.3rem 1rem;
   background: rgba(255,255,255,.12);
   border: 1px solid rgba(255,255,255,.35);
