@@ -1289,3 +1289,7 @@ a.activite__lieu:hover .activite__nom::after{ transform: translate(.2em, -.1em) 
 @media (max-width: 560px){
   :is(#modale-gite-k, #modale-gite-p, #modale-gite-pk) .benefices{ grid-template-columns: 1fr; }
 }
+
+.pied__bas a.pied__credit{ color: inherit; text-decoration: none; }
+.pied__bas a.pied__credit:hover,
+.pied__bas a.pied__credit:focus-visible{ text-decoration: underline; text-underline-offset: 3px; }
